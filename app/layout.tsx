@@ -1,6 +1,8 @@
+import { get } from 'http'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { getCategories, getProducts } from './services'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,6 +15,10 @@ export const metadata: Metadata = {
 
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+
+  const products = await getProducts()
+  const categories = await getCategories(products)
+  console.log(categories)
    return (
     <html lang='en'>
       <body className='container m-auto grid min-h-screen grid-rows-[auto,lfr,auto] px-4'>

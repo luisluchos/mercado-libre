@@ -7,3 +7,10 @@ export type Product = {
   price: number
   thumbnail: string
 }
+
+
+export type Category = {
+  id: string
+  name: string
+ parent_id?: string
+}
